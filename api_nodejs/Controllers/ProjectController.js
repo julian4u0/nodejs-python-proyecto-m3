@@ -1,6 +1,9 @@
 
 import House from '../Models/HouseModel';
 import User from '../Models/ProjectModel';
+
+var mongoose = require('mongoose');
+
 let controller = {
     adduser: async (req, res) =>{
         const {nombre, apellido, email, pass} = req.body;
@@ -61,7 +64,7 @@ let controller = {
             }
             else{
                 let success = true;
-                let data = [user[0]._id];
+                let data = user[0]._id;
                 let error = { title : null, message: null};
                 return res.status(200).json( {res : build(success, data, error)});
             }
@@ -69,7 +72,16 @@ let controller = {
     },
     edithouse: async (req,res) =>{
         const {houseid, title, type , address, rooms ,price, area, ownerid} = req.body;
-        await House.findByIdAndUpdate(houseid,  {houseid, title, type , address, rooms ,price, area, ownerid} );
+        if(houseid &&  title &&  type &&   address &&   rooms &&  price && area &&  ownerid){
+
+            
+            await House.findByIdAndUpdate(mongoose.Types.ObjectId(houseid),  {houseid, title, type , address, rooms ,price, area, ownerid} );
+       
+            console.log("updaated"); }
+        else{
+
+            console.log("no all data sent");
+        }
 
         let success = true;
         let data = [];
@@ -82,7 +94,7 @@ let controller = {
         const houses = await House.find(query);
         
         let success = true;
-        let data = [houses];
+        let data = houses;
         let error = { title : null, message: null};
         return res.status(200).json( {res : build(success, data, error)});
         
@@ -97,8 +109,8 @@ let controller = {
         
     },
     deletehouse: async (req,res) =>{
-        const {id} = req.body;
-        await House.findByIdAndDelete(id);        
+        const {houseid} = req.body;
+        await House.findByIdAndDelete(mongoose.Types.ObjectId(houseid));        
         let success = true;
         let data = [];
         let error = { title : null, message: null};
