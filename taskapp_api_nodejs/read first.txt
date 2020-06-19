@@ -1,0 +1,5 @@
+Steps.
+1 - create database in mongo with name taskapp and collection name tasks
+In node proyect run
+2 - npm install -> to install all dependencies
+3 - npm start -> run aplication
