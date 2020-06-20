@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="highlight-clean" style="margin-top: 0px;height: 274px;">
+    <div class="container">
+        <div class="intro">
+            <p class="text-center">Eres un nuevo usuario?</p>
+        </div>
+        <div class="d-flex flex-column align-items-center buttons">
+            <a class="btn btn-primary" role="button" href="/register">Registrarse</a>
+            <a class="btn btn-light" role="button" href="/all">ir a inmuebles sin registrarse</a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="highlight-clean" style="margin-top: 0;background-color: rgb(167, 167, 167);">
+        <div class="intro">
+            <p class="text-center">Ya te registraste?</p>
+        </div>
+        <div class="d-flex flex-column align-items-center buttons">
+            <a class="btn btn-light" role="button" href="/login">Iniciar sesión</a>
+
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

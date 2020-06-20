@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Agregar nuevo inmueble</h1>
+<form action="/addhouse" method="POST">
+    <label>Titulo</label>
+    <input class="form-control" name="title" type="text" required>
+    <label>Tipo</label>
+    <input class="form-control" name="type"  type="text" required>
+    <label>Direccion</label>
+    <input class="form-control" name="address"  type="text" required>
+    <label>Numero de habitaciones</label>
+    <input class="form-control" name="rooms"  type="number" required>
+    <label>Precio</label>
+    <input class="form-control" name="price"  type="number" required>
+    <label>Area en m2</label>
+    <input class="form-control" name="area"  type="number" required>
+    
+    <input class="form-control" value="{{user}}" name="ownerid"  type="text" required hidden >
+    
+    <button
+        class="btn btn-primary flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-start flex-nowrap order-1 justify-content-xl-center"
+        type="submit" style="margin-top: 19px;">REGISTRARSE</button>
+</form>
+
+{% endblock %}

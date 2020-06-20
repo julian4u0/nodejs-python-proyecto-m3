@@ -10,6 +10,7 @@ router.post('/edithouse', controller.edithouse);//!
 router.post('/listmyhouses', controller.listmyhouses);//!
 router.post('/listall', controller.listall);//!
 router.post('/deletehouse', controller.deletehouse);//!
+router.post('/findone', controller.findone);//!
 //router.get('/data', controller.data);listmyhouses
 
 module.exports = router;

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>{{housedata["title"]}}</h2>
+<h4>{{housedata["type"]}}</h4>
+<p>Direccion: {{housedata["address"]}}</p>
+<p>Habitaciones: {{housedata["rooms"]}}</p>
+<p>Precio: ${{housedata["price"]}}</p>
+<p>Area en m2: {{housedata["area"]}}</p>
+
+<img src="{{url_for('static', filename='img/img')}}" class="imagen" alt="">
+
+{% endblock %}

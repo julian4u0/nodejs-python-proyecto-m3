@@ -17,8 +17,13 @@ let controller = {
         }
         const newUser = new User({nombre, apellido, email, pass});
         await newUser.save();
+        
+        var query = { email: email };
+        const user = await User.find(query);
+
+
         let success = true;
-        let data = [];
+        let data = user[0]._id;
         let error = { title : null, message: null};
         return res.status(200).json( {res : build(success, data, error)});
     },
@@ -95,6 +100,16 @@ let controller = {
         
         let success = true;
         let data = houses;
+        let error = { title : null, message: null};
+        return res.status(200).json( {res : build(success, data, error)});
+        
+    },
+    findone: async (req,res) =>{
+        const { houseid } = req.body;
+        
+        const onehouse = await House.findById(mongoose.Types.ObjectId(houseid)); 
+        let success = true;
+        let data = onehouse;
         let error = { title : null, message: null};
         return res.status(200).json( {res : build(success, data, error)});
         

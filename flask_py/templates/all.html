@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+{% if user %}
+<a class="btn btn-info btn-sm" role="button" href="/myhouses?id={{user}}" style="margin-top: 10px;">VER MIS
+  INMUEBLES</a>
+<a class="btn btn-danger btn-sm" role="button" href="/logout" style="margin-top: 10px;">CERRAR SESION</a>
+{% else %}
+
+<a class="btn btn-success btn-sm" role="button" href="/" style="margin-top: 10px;">Volver a inicio</a>
+{% endif %}
+
+<div class="card-columns d-flex flex-row align-content-start flex-wrap">
+  {% for task in houses  %}
+
+  <!-- {{task['_id']}} -->
+  <div class="card border-info" style="margin: 5px;width: 45%;height: auto;min-width: 45%;">
+    <div class="card-body">
+      <h4 class="card-title">{{task['title']}}</h4>
+      <h6 class="text-muted card-subtitle mb-2">{{task['price']}}</h6>
+      <img style="max-width: 100%;width: 100%;" class="imagen" src = "{{url_for('static', filename='img/img')}}">
+      <a class="btn btn-info btn-sm"
+        role="button" href="/ver?hid={{task['_id']}}" style="margin-top: 10px;">VER DETALLES</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+<a class="btn btn-secondary btn-sm" role="button" href="/newhouse" style="margin-top: 10px;">CREAR UN NUEVO INMUEBLE</a>
+
+
+<div class="card-columns d-flex flex-row align-content-start flex-wrap">
+  {% for house in houses  %}
+
+  
+  <div class="card border-info" style="margin: 5px;width: 45%;height: auto;min-width: 45%;">
+    <div class="card-body">
+      <h4 class="card-title">{{house['title']}}</h4>
+      <h6 class="text-muted card-subtitle mb-2">{{house['price']}}</h6><img class="imagen" style="max-width: 100%;width: 100%;"
+        src="{{url_for('static', filename='img/img')}}">
+        <a class="btn btn-info btn-sm" role="button" href="/edithouse?hid={{house['_id']}}" style="margin-top: 10px;">EDITAR</a>
+        <a class="btn btn-danger btn-sm" role="button" href="/deletehouse?hid={{house['_id']}}" style="margin-top: 10px;">BORRAR</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
