@@ -1,50 +1,27 @@
-body{
+body {
     background-color: white;
 }
-.article-clean {
-    color: #56585b;
-    background-color: #fff;
-    font-family: 'Lora', serif;
-    font-size: 14px;
-  }
-  
-  
 
-  .article-clean .text p {
+.article-clean .text p {
     margin-bottom: 20px;
     line-height: 1.45;
-  }
-  
-  .highlight-clean {
+}
+
+.highlight-clean {
     color: #313437;
     background-color: #fff;
     padding: 50px 0;
-  }
-  
-  .highlight-clean p {
+}
+
+.highlight-clean p {
     color: #2b404d;
-  }
-  
-  .highlight-clean h2 {
-    font-weight: bold;
-    margin-bottom: 25px;
-    line-height: 1.5;
-    padding-top: 0;
-    margin-top: 0;
-    color: inherit;
-  }
-  
-  .highlight-clean .intro {
-    font-size: 16px;
-    max-width: 500px;
-    margin: 0 auto 25px;
-  }
-  
-  .highlight-clean .buttons {
+}
+
+.highlight-clean .buttons {
     text-align: center;
-  }
-  
-  .highlight-clean .buttons .btn {
+}
+
+.highlight-clean .buttons .btn {
     padding: 16px 32px;
     margin: 6px;
     border: none;
@@ -59,7 +36,4 @@ body{
     line-height: 1;
     outline: none;
     background-color: #17a2b8;
-  }
-  
-  
-    
+}
