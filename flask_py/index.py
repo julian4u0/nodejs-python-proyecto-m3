@@ -9,9 +9,9 @@ app = Flask(__name__)
 def all():
     order = request.args.get('order')
     if order == 'desc' or order == 'asc':
-      response = req.get('http://localhost:3000/api/listall?order='+order)
+      response = req.get('http://localhost:3000/api/getproperties?order='+order)
     else:
-      response = req.get('http://localhost:3000/api/listall')
+      response = req.get('http://localhost:3000/api/getproperties')
 
     
     # print()
@@ -57,7 +57,7 @@ def logout():
 def myhouses():
   ownerid = session["userid"]
   myhouses = {"ownerid": ownerid}
-  response = req.post('http://localhost:3000/api/listmyhouses', json=myhouses)
+  response = req.post('http://localhost:3000/api/getmyproperties', json=myhouses)
     # print()
   result = response.json()['res']['data']
   # print(result)
@@ -104,7 +104,7 @@ def addhouse():
 
   addhouse = {"title": title, "type": typee, "address": address, "rooms": rooms, "price": price, "area": area, "ownerid": ownerid}
 
-  response = req.put('http://localhost:3000/api/addhouse', json=addhouse)
+  response = req.put('http://localhost:3000/api/addproperty', json=addhouse)
     # bytes a dict
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
@@ -144,9 +144,9 @@ def loginuser():
 @app.route('/deletehouse')
 def deletehouse():
     id = request.args.get('hid')
-    deleteData = {"id": id}
+    deleteData = {"houseid": id}
     print(id)
-    response = req.post('http://localhost:3000/api/deletetask', json=deleteData)
+    response = req.delete('http://localhost:3000/api/deleteproperty', json=deleteData)
     return redirect(url_for('myhouses'))
 
 @app.route('/edithouse')
@@ -154,7 +154,7 @@ def edithouse():
   id = request.args.get('hid')
   reqbody = {"houseid": id}
   
-  response = req.get('http://localhost:3000/api/findone', json=reqbody)
+  response = req.get('http://localhost:3000/api/getproperty', json=reqbody)
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
   cont = cont["res"]["data"]
@@ -179,7 +179,7 @@ def edit():
 
   editedhouse = {"title": title, "type": typee, "address": address, "rooms": rooms, "price": price, "area": area, "ownerid": ownerid, "houseid": houseid}
 
-  response = req.post('http://localhost:3000/api/edithouse', json=editedhouse)
+  response = req.post('http://localhost:3000/api/editproperty', json=editedhouse)
 
   
   cont = response.content
@@ -199,7 +199,7 @@ def ver():
   id = request.args.get('hid')
   reqbody = {"houseid": id}
   
-  response = req.get('http://localhost:3000/api/findone', json=reqbody)
+  response = req.get('http://localhost:3000/api/getproperty', json=reqbody)
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
   cont = cont["res"]["data"]

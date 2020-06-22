@@ -3,14 +3,24 @@ import controller from '../Controllers/ProjectController'
 
 const router = express.Router();
 
-router.put('/addhouse', controller.addhouse);//!
-router.post('/finduser', controller.finduser);//!
-router.put('/adduser', controller.adduser);//!
-router.post('/edithouse', controller.edithouse);//!
-router.post('/listmyhouses', controller.listmyhouses);//!
-router.get('/listall', controller.listall);//!
-router.delete('/deletehouse', controller.deletehouse);//!
-router.get('/findone', controller.findone);//!
+router.put('/addproperty', controller.addproperty);//addhouse'
+router.post('/finduser', controller.finduser);//finduser'
+router.put('/adduser', controller.adduser);//adduser'
+router.post('/editproperty', controller.editproperty);//edithouse'
+router.post('/getmyproperties', controller.getmyproperties);//listmyhouses'
+router.get('/getproperties', controller.getproperties);//listall'
+router.delete('/deleteproperty', controller.deleteproperty);//deletehouse'
+router.get('/getproperty', controller.getproperty);//findone'
 //router.get('/data', controller.data);listmyhouses
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
