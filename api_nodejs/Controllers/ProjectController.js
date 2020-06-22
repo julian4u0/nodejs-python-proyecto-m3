@@ -115,7 +115,21 @@ let controller = {
         
     },
     listall: async (req,res) =>{
-        const allhouses = await House.find({});
+        //const allhouses = await House.find({}).sort({price : 1});
+        let allhouses = null;
+
+        var order = req.query;
+        
+        if(order.order == 'desc'){
+            allhouses = await House.find({}).sort({price : -1});
+        }
+        else if( order.order == 'asc'){
+            allhouses = await House.find({}).sort({price : 1})
+        }
+        else{
+            
+            allhouses = await House.find({})
+        }
         
         let success = true;
         let mydata = allhouses;

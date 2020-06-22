@@ -5,10 +5,17 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/all')
+@app.route('/all', methods=['GET'])
 def all():
-    response = req.post('http://localhost:3000/api/listall')
+    order = request.args.get('order')
+    if order == 'desc' or order == 'asc':
+      response = req.get('http://localhost:3000/api/listall?order='+order)
+    else:
+      response = req.get('http://localhost:3000/api/listall')
+
+    
     # print()
+    print(response)
     result = response.json()['res']['data']
     
     if 'userid' in session:
@@ -73,7 +80,7 @@ def registeruser():
 
   adduser = {"nombre": nombre, "apellido": apellido, "email": email, "pass": password}
 
-  response = req.post('http://localhost:3000/api/adduser', json=adduser)
+  response = req.put('http://localhost:3000/api/adduser', json=adduser)
     # bytes a dict
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
@@ -97,7 +104,7 @@ def addhouse():
 
   addhouse = {"title": title, "type": typee, "address": address, "rooms": rooms, "price": price, "area": area, "ownerid": ownerid}
 
-  response = req.post('http://localhost:3000/api/addhouse', json=addhouse)
+  response = req.put('http://localhost:3000/api/addhouse', json=addhouse)
     # bytes a dict
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
@@ -147,7 +154,7 @@ def edithouse():
   id = request.args.get('hid')
   reqbody = {"houseid": id}
   
-  response = req.post('http://localhost:3000/api/findone', json=reqbody)
+  response = req.get('http://localhost:3000/api/findone', json=reqbody)
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
   cont = cont["res"]["data"]
@@ -192,7 +199,7 @@ def ver():
   id = request.args.get('hid')
   reqbody = {"houseid": id}
   
-  response = req.post('http://localhost:3000/api/findone', json=reqbody)
+  response = req.get('http://localhost:3000/api/findone', json=reqbody)
   cont = response.content
   cont = json.loads(cont.decode("utf-8"))
   cont = cont["res"]["data"]

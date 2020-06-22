@@ -17,8 +17,8 @@
       <h4 class="card-title">{{house['title']}}</h4>
       <h6 class="text-muted card-subtitle mb-2">{{house['price']}}</h6><img class="imagen" style="max-width: 100%;width: 100%;"
         src="{{url_for('static', filename='img/img')}}">
-        <a class="btn btn-info btn-sm" role="button" href="/edithouse?hid={{house['_id']}}" style="margin-top: 10px;">EDITAR</a>
-        <a class="btn btn-danger btn-sm" role="button" href="/deletehouse?hid={{house['_id']}}" style="margin-top: 10px;">BORRAR</a>
+        <a class="btn btn-info btn-sm" role="button" href="/edithouse?hid={{house['_id']}}" style="margin-top: 10px;">EDITAR <i class="fas fa-edit"></i></a>
+        <a class="btn btn-danger btn-sm" role="button" href="/deletehouse?hid={{house['_id']}}" style="margin-top: 10px;">BORRAR <i class="fas fa-trash"></i></a>
     </div>
   </div>
   {% endfor %}

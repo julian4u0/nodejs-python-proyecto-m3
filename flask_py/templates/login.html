@@ -1,5 +1,4 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 
 <h1>Ingreso</h1>
 <form action="/loginuser" method="POST">
@@ -7,8 +6,17 @@
     <input class="form-control" name="email" type="email">
     <label>Contraseña</label>
     <input class="form-control" name="pass" type="password">
-    <button
-        class="btn btn-primary flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-start flex-nowrap order-1 justify-content-xl-center"
-        type="submit" style="margin-top: 19px;">Iniciar Sesión</button></form>
+    <p style="color:red;" id="error"></p>
+    <button class="btn btn-primary flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-start flex-nowrap order-1 justify-content-xl-center" type="submit" style="margin-top: 19px;">Iniciar Sesión</button></form>
 
+<script>
+    const parametrosurl = new URLSearchParams(window.location.search);
+    const error = parametrosurl.get('err');
+    if (error == "notexisting") {
+        document.getElementById("error").innerText = "Ese usuario no existe";
+    } else if (error == "incorrectpass") {
+        document.getElementById("error").innerText = "Contraseña incorrecta!";
+
+    }
+</script>
 {% endblock %}
