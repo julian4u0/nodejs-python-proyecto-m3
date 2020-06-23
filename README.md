@@ -1,8 +1,8 @@
 # Node.js - flask Momento 3
-_Proyecto de api en Node.js y web en flask consumiendo esta api _
+_Proyecto de api en Node.js y web en flask consumiendo esta api_
 
 ## Como comenzar
-_En la carpeta de node ejecutar los siguientes comandos, este es para instalar las dependencias: _
+_En la carpeta de node ejecutar los siguientes comandos, este es para instalar las dependencias:_
 ```
 npm install
 ```
