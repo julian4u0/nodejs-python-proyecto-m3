@@ -15,3 +15,6 @@ _Y en la carpeta de flask ejecutar_
 ```
 py index.py
 ```
+
+## Explicacion 📖
+_[Acá](https://www.youtube.com/watch?v=AMH2wUq9xVs) un video breve y explicativo_
